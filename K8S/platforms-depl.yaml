@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platforms-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platformservice
+  template:
+    metadata:
+      labels:
+        app: platformservice
+    spec:
+      containers:
+        - name: platformservice
+          image: erashu/platformservice:latest
+
+# kubectl apply -f platforms-depl.yaml
+# get all :
+# kubectl get deployments
+# kubectl delete deployments platforms-depl
+# kubectl get pods
+# kubectl get services
