@@ -10,16 +10,15 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT [ "dotnet", "PlatformService.dll" ]
+ENTRYPOINT [ "dotnet", "CommandsService.dll" ]
 
 # Build docker image dotn't forget '.'
-# docker build -t erashu/platformservice .
+# docker build -t erashu/commandsservice .
 # Run 
-# -p means port  external:internal -d <dockerhubid>/platformservice  
+# -p means port  external:internal -d <dockerhubid>/commandscervice  
 # -d means detach mode
-# docker run -p 8080:80 -d erashu/platformservice
+# docker run -p 8080:80 -d erashu/commandsservice
 # docker ps
 # docker start <id>
 # docker stop <id>
-# docker push <dockerid>/platformservice
-# docker push erashu/platformservice
+# docker push <dockerid>/commandsservice

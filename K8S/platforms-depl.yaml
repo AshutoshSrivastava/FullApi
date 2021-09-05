@@ -15,6 +15,21 @@ spec:
       containers:
         - name: platformservice
           image: erashu/platformservice:latest
+---
+# this is seperation
+apiVersion: v1
+kind: Service
+metadata:
+  name: platforms-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: platformservice
+  ports:
+  - name: platformservice
+    protocol: TCP
+    port: 80
+    targetPort: 80  
 
 # kubectl apply -f platforms-depl.yaml
 # get all :
@@ -22,3 +37,6 @@ spec:
 # kubectl delete deployments platforms-depl
 # kubectl get pods
 # kubectl get services
+
+# To refresh the image on Kube
+# kubectl rollout restart deployment platforms-depl
