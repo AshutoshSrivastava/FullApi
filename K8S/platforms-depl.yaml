@@ -37,6 +37,11 @@ spec:
 # kubectl delete deployments platforms-depl
 # kubectl get pods
 # kubectl get services
+# kubectl get namespace
 
 # To refresh the image on Kube
 # kubectl rollout restart deployment platforms-depl
+
+# For load balencer ingress-nginx
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+# kubectl get pods --namespace=ingress-nginx
